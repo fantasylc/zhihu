@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+    .answer_ques:hover,.warn_answer:hover{
+        color: #ff5500;
+        text-decoration: none;
+
+}   </style>
+{% endblock %}
+{% block main %}
+     <div class="row">
+    <div class="col-md-8 col-sm-10 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-1 ">
+    <div class=" well article-page">
+        <div style="color: red;">
+            <h3>!!!如果页面显示效果不好，请查看<a class="warn_answer" href="{{ answer.author_link }}">知乎原文</a></h3>
+        </div>
+        <div>
+            <div><h3><a class="answer_ques" href="{{ answer.question_link }}">{{ answer.question }}</a></h3></div>
+            <div>
+                <span>&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          {{answer.author}}
+          </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          {{answer.date |date:"Y-m-d"}}
+        </span>
+            </div>
+        </div>
+        <hr/>
+        <div style="font-size: 15px;
+    line-height: 18px;
+    word-break: break-all;">
+            {{ answer.answer | safe }}
+        </div>
+        <hr/>
+        {% include 'zhihu/includes/share.html' %}
+        <div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="answer_block">
+   <div><div>
+       <div class="div1">&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span><strong>{{ answer.vote }}</strong>&nbsp;&nbsp;</div>
+       <div class="div2"><h4> <a href="{{ answer.question_link }}">{{ answer.question }}</a></h4></div>
+       </div>
+       <div class="div_hr"></div>
+       <div class="answer_sum">
+           <div class="div4">
+           <p>
+                {{answer.summary|slice:"150" }}
+                {% if answer.summary|length > 150 %}
+                    ...
+                {% endif %}
+             </p></div>
+     <div class="div3">  <a type="button" href="/zhihu/answer/{{ answer.id }}/" class="btn btn-info ">查看详细</a></div>
+       </div>
+
+   </div>
+</div>

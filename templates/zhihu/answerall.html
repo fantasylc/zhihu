@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block css %}
+    <meta name="renderer" content="webkit" />
+    <style>
+    .answer_block{
+
+    border: solid 2px #e3e3e3;
+    border-radius: 2px;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 18px;
+    word-break: break-all;
+
+    }
+    .div1,.div2{
+        float: left;display: inline;
+    }
+    .div1{
+        position: relative;
+        padding-top: 10px;
+    }
+    .div3{
+        display: inline;
+
+        margin-right: 10px;
+        margin-bottom: 5px;
+        float: right;
+    }
+    .div4{
+        float: left;
+        display: inline;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .div2 >h4 >a:hover{
+        text-decoration: none;
+        color: #ff4400;
+    }
+    .answer_sum{
+        overflow: hidden;
+    }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="row">
+     <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+    {% autopaginate answer_list 5 %}
+    {% for answer in answer_list %}
+        {% include 'zhihu/includes/answer_block.html' %}
+    {% endfor %}
+     <div class="text-center" style="font-size:22px;">{% paginate %}</div>
+    </div>
+        </div>
+
+<div>{% include 'zhihu/includes/sharef.html' %}</div>
+{% endblock %}
